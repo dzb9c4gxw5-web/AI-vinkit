@@ -339,7 +339,7 @@
         
         <footer>
             <p>💡 Muista: AI on työkalu - sinä olet ajattelija</p>
-            <p style="font-size: 0.9em; opacity: 0.8;">Alkuperäinen AI Advent Calendar 2025 | Nyt vinkkipankkina</p>
+            <p style="font-size: 0.9em; opacity: 0.8;">Alkuperäinen AI Advent Calendar 2024 | Nyt vinkkipankkina</p>
         </footer>
     </div>
     
@@ -1136,3 +1136,37 @@ The best way to learn AI is to use it!`
         function openTip(tipNum) {
             const tip = tipsData[tipNum];
             document.getElementById('modalTitle').textContent = `Vinkki ${tipNum}: ${tip.title}`;
+            document.getElementById('modalBody').innerHTML = tip.content;
+            document.getElementById('modal').classList.add('active');
+        }
+        
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+        
+        document.getElementById('modal').onclick = function(e) {
+            if (e.target.id === 'modal') {
+                closeModal();
+            }
+        };
+        
+        document.getElementById('searchBox').addEventListener('input', function(e) {
+            searchTerm = e.target.value;
+            renderTips();
+        });
+        
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.getAttribute('data-category');
+                renderTips();
+            });
+        });
+        
+        window.onload = function() {
+            renderTips();
+        };
+    </script>
+</body>
+</html>
