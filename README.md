@@ -1,2 +1,2 @@
-# AI-joulukalenteri
-Joulukalenteri joka antaa vinkkejä tekoälyn käyttöön
+# AI-Vinkkisivusto
+sivusto joka antaa vinkkejä tekoälyn käyttöön
